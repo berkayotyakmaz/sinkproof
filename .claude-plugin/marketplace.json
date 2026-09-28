@@ -1,0 +1,11 @@
+{
+  "name": "sinkproof",
+  "owner": { "name": "bekko" },
+  "plugins": [
+    {
+      "name": "sinkproof",
+      "source": "./plugins/sinkproof",
+      "description": "Evidence-backed code audit: security vulnerabilities, logic and concurrency bugs, vulnerable dependencies, architecture and code principles."
+    }
+  ]
+}

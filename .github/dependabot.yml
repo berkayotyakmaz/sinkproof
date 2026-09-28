@@ -1,0 +1,10 @@
+# The apps under benchmarks/ are deliberately vulnerable and pin old packages on
+# purpose. sinkproof itself has no runtime dependencies, so Dependabot version
+# updates stay off for them. Security alerts for benchmarks/ can be dismissed as
+# "vulnerable code is not actually used" (they are never run).
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"

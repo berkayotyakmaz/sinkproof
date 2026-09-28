@@ -1,0 +1,33 @@
+{
+  "app": "express-starter",
+  "expected": [
+    {"class": "idor", "file": "src/routes/orders.js", "symbol": "getOrder", "required": true},
+    {"class": "mass-assignment", "file": "src/routes/users.js", "symbol": "updateProfile", "required": true},
+    {"class": "sql-injection", "file": "src/routes/search.js", "symbol": "searchProducts", "required": true},
+    {"class": "xss", "file": "src/routes/search.js", "symbol": "renderSearch", "required": true},
+    {"class": "ssrf", "file": "src/routes/preview.js", "symbol": "fetchPreview", "required": true},
+    {"class": "race-condition", "file": "src/routes/coupons.js", "symbol": "redeemCoupon", "required": true},
+    {"class": "vulnerable-dependency", "file": "package.json", "symbol": "<manifest>", "required": true},
+    {"class": "prototype-pollution", "file": "src/routes/users.js", "symbol": "mergeSettings", "required": false},
+    {"class": "sql-injection", "file": "src/routes/users.js", "symbol": "updateProfile", "required": false},
+    {"class": "missing-rate-limit", "file": "src/routes/auth.js", "symbol": "login", "required": true},
+    {"class": "jwt", "file": "src/routes/auth.js", "symbol": "verifyToken", "required": true},
+    {"class": "open-redirect", "file": "src/routes/auth.js", "symbol": "redirectAfterLogin", "required": true},
+    {"class": "path-traversal", "file": "src/routes/files.js", "symbol": "downloadFile", "required": true},
+    {"class": "github-actions", "file": ".github/workflows/ci.yml", "symbol": "<module>", "required": true},
+    {"class": "docker", "file": "Dockerfile", "symbol": "<module>", "required": true},
+    {"class": "idor", "file": "src/routes/orders.js", "symbol": "listInvoices", "required": true},
+    {"class": "prompt-injection", "file": "src/routes/orders.js", "symbol": "listInvoices", "required": true}
+  ],
+  "safe": [
+    {"file": "src/routes/orders.js", "symbol": "getInvoice", "note": "query scoped by user_id"},
+    {"file": "src/routes/users.js", "symbol": "updateEmail", "note": "requires the current password; only email is written and verification is reset"},
+    {"file": "src/routes/search.js", "symbol": "searchUsers", "note": "LIKE pattern bound as a parameter"},
+    {"file": "src/routes/search.js", "symbol": "renderProfile", "note": "all values HTML-escaped"},
+    {"file": "src/routes/coupons.js", "symbol": "redeemGiftCard", "note": "atomic conditional update with affectedRows check"},
+    {"file": "src/routes/auth.js", "symbol": "loginV2", "note": "route uses per-IP and per-account limiters"},
+    {"file": "src/routes/auth.js", "symbol": "verifyTokenStrict", "note": "jwt.verify with a pinned algorithm"},
+    {"file": "src/routes/auth.js", "symbol": "redirectSafe", "note": "only same-origin relative paths"},
+    {"file": "src/routes/files.js", "symbol": "readReport", "note": "resolved path must stay inside REPORTS_DIR"}
+  ]
+}

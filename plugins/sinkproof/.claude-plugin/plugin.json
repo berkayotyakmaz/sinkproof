@@ -1,0 +1,9 @@
+{
+  "name": "sinkproof",
+  "version": "0.6.0",
+  "description": "Evidence-backed code audit: security vulnerabilities, logic and concurrency bugs, vulnerable dependencies, architecture and code principles.",
+  "author": {
+    "name": "bekko"
+  },
+  "license": "MIT"
+}
